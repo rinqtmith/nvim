@@ -10,7 +10,7 @@ keymap.set("n", "<C-l>", "<C-w>l")
 keymap.set("n", "<C-j>", "<C-w>j")
 keymap.set("n", "<C-k>", "<C-w>k")
 
-keymap.set("n", "<leader>eq", ":lua ColorMyPencils()<CR>")
+keymap.set("n", "<leader>eq", ":lua ColorMyPencils()<CR>", { silent = true })
 
 -- greatest remap ever
 keymap.set("x", "<leader>p", [["_dP]])
