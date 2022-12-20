@@ -34,6 +34,9 @@ lualine.setup({
     theme = lualine_nightfly,
   },
   extensions = {
-    'nvim-tree'
+    "nvim-tree",
+    "fugitive",
+    "quickfix",
+    "toggleterm"
   }
 })
