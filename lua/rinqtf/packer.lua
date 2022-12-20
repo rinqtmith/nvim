@@ -88,13 +88,12 @@ return packer.startup({ function(use)
   use {
     "folke/which-key.nvim",
     config = function()
-      require("which-key").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require("which-key").setup {}
     end
   }
+
+  use("jose-elias-alvarez/null-ls.nvim")
+  use("jayp0521/mason-null-ls.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
