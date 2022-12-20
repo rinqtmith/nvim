@@ -5,6 +5,11 @@ local keymap = vim.keymap
 keymap.set("i", "jj", "<ESC>")
 keymap.set("n", "Q", "<nop>")
 
+keymap.set("n", "<C-h>", "<C-w>h")
+keymap.set("n", "<C-l>", "<C-w>l")
+keymap.set("n", "<C-j>", "<C-w>j")
+keymap.set("n", "<C-k>", "<C-w>k")
+
 keymap.set("n", "<leader>eq", ":lua ColorMyPencils()<CR>")
 
 -- greatest remap ever
@@ -41,8 +46,8 @@ keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+keymap.set("n", "<C-ğ>", "<cmd>cnext<CR>zz")
+keymap.set("n", "<C-ü>", "<cmd>cprev<CR>zz")
 keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
