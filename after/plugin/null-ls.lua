@@ -19,7 +19,9 @@ null_ls.setup({
     --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
     formatting.prettier, -- js/ts formatter
     formatting.black, -- lua formatter
-    diagnostics.flake8,
+    diagnostics.flake8.with({
+      extra_args = {"--max-line-length", "120"}
+    }),
     diagnostics.eslint_d.with({ -- js/ts linter
       -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
       condition = function(utils)
