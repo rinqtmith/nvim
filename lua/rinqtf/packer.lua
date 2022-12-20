@@ -26,13 +26,14 @@ if not status then
   return
 end
 
-return packer.startup(function(use)
+return packer.startup({ function(use)
   use 'wbthomason/packer.nvim'
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
   use({
     'rose-pine/neovim',
@@ -69,9 +70,28 @@ return packer.startup(function(use)
     }
   }
 
+  use('numToStr/Comment.nvim')
+  use('nvim-tree/nvim-tree.lua')
+  use('nvim-tree/nvim-web-devicons')
+
+  use('nvim-lualine/lualine.nvim')
+
+  use("windwp/nvim-autopairs")
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+
+  use("lewis6991/gitsigns.nvim")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
+  }
+})
