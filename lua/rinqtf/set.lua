@@ -32,6 +32,7 @@ opt.isfname:append("@-@")
 opt.colorcolumn = "80"
 
 opt.backspace = "indent,eol,start"
+opt.completeopt = 'menuone,noselect'
 
 opt.clipboard:append("unnamedplus")
 

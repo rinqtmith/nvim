@@ -24,7 +24,7 @@ lualine_nightfly.command = {
   a = {
     gui = "bold",
     bg = new_colors.yellow,
-    fg = new_colors.black, -- black
+    fg = new_colors.black,
   },
 }
 
