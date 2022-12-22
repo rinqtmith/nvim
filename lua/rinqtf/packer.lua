@@ -84,6 +84,7 @@ return packer.startup({ function(use)
   use("lukas-reineke/indent-blankline.nvim")
 
   use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+  use { 'famiu/bufdelete.nvim' }
 
   use {
     "folke/which-key.nvim",

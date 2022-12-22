@@ -28,6 +28,7 @@ bufferline.setup {
 }
 
 keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", { silent = true })
+keymap.set("n", "<leader>bx", ":Bdelete<CR>", { silent = true })
 keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", { silent = true })
 keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
 keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
