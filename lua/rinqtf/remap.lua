@@ -57,3 +57,5 @@ keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
+
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { silent = true })
