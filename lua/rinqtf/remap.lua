@@ -58,4 +58,4 @@ keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
 
-keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { silent = true })
+keymap.set("n", "<M-1>", ":ToggleTerm direction=float<CR>", { silent = true })
