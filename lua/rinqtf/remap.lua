@@ -4,7 +4,7 @@ local keymap = vim.keymap
 
 keymap.set("i", "jj", "<ESC>")
 keymap.set("n", "Q", "<nop>")
-keymap.set("n", "<C-q>", ":cclose<CR>")
+keymap.set("n", "<C-q>", ":cclose<CR>", { silent = true })
 
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-l>", "<C-w>l")
