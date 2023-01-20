@@ -22,7 +22,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.rustfmt,
 		diagnostics.flake8.with({
-			extra_args = { "--max-line-length", "120" },
+			extra_args = { "--max-line-length", "120", "--ignore", "E203,W503" },
 		}),
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
