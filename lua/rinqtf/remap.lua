@@ -62,3 +62,7 @@ keymap.set("n", "<leader>q", ":q<CR>", { silent = true })
 keymap.set("n", "<leader>?", ":Cheatsheet<CR>", { silent = true })
 
 keymap.set("n", "<M-1>", ":ToggleTerm direction=float<CR>", { silent = true })
+
+keymap.set("n", "<leader>0", ":MarkdownPreview<CR>", { silent = true })
+keymap.set("n", "<leader>00", ":MarkdownPreviewStop<CR>", { silent = true })
+keymap.set("n", "<leader>000", ":MarkdownPreviewToggle<CR>", { silent = true })
