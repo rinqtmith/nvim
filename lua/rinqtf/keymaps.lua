@@ -125,6 +125,8 @@ wk.register({
 			c = { "<cmd>Telescope git_commits<cr>", "Commits" },
 			s = { "<cmd>Telescope git_status<cr>", "Status" },
 			g = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
+			p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
+			t = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
 		},
 		s = {
 			name = "+search",
