@@ -62,6 +62,19 @@ wk.register({
 	["<A-2>"] = { "<cmd>ToggleTerm size=70 direction=vertical<cr>", "Terminal (Veritcal)" },
 	["<A-3>"] = { "<cmd>ToggleTerm direction=horizontal<cr>", "Terminal (Horizontal)" },
 	["<A-4>"] = { "<cmd>ToggleTerm direction=tab<cr>", "Terminal (Tab)" },
+
+	["]t"] = {
+		function()
+			require("todo-comments").jump_next()
+		end,
+		"Next todo comment",
+	},
+	["[t"] = {
+		function()
+			require("todo-comments").jump_prev()
+		end,
+		"Previous todo comment",
+	},
 })
 
 wk.register({
@@ -103,14 +116,16 @@ wk.register({
 		x = {
 			name = "+list",
 			l = { "<cmd>lopen<cr>", "Location list" },
-			q = { "<cmd>copen<cr>", "Location list" },
+			q = { "<cmd>copen<cr>", "Quickfix list" },
+			t = { "<cmd>TodoTelescope<cr>", "Todo search" },
+			x = { "<cmd>TodoQuickfix<cr>", "Todo list" },
 		},
 		qq = { "<cmd>qa<cr>", "Quit all" },
 		e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 		t = {
 			name = "+tab",
 			n = { "<cmd>tabn<cr>", "Next tab" },
-			p = { "<cmd>tabp<cr>", "Preivous tab" },
+			p = { "<cmd>tabp<cr>", "Previous tab" },
 			o = { "<cmd>tabnew<cr>", "New tab" },
 			q = { "<cmd>tabclose<cr>", "Close tab" },
 		},
