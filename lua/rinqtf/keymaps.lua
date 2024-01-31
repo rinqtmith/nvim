@@ -1,5 +1,28 @@
 local wk = require("which-key")
 
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({
+	cmd = "lazygit",
+	dir = "git_dir",
+	direction = "float",
+	float_opts = {
+		border = "double",
+	},
+	-- function to run on opening the terminal
+	on_open = function(term)
+		vim.cmd("startinsert!")
+		vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+	end,
+	-- function to run on closing the terminal
+	on_close = function(_)
+		vim.cmd("startinsert!")
+	end,
+})
+
+function _lazygit_toggle()
+	lazygit:toggle()
+end
+
 wk.register({
 	["<C-h>"] = { "<C-w>h", "Go to left window" },
 	["<C-l>"] = { "<C-w>l", "Go to right window" },
@@ -34,6 +57,11 @@ wk.register({
 		end,
 		"Previous quickfix",
 	},
+
+	["<A-1>"] = { "<cmd>ToggleTerm direction=float<cr>", "Terminal (Float)" },
+	["<A-2>"] = { "<cmd>ToggleTerm size=70 direction=vertical<cr>", "Terminal (Veritcal)" },
+	["<A-3>"] = { "<cmd>ToggleTerm direction=horizontal<cr>", "Terminal (Horizontal)" },
+	["<A-4>"] = { "<cmd>ToggleTerm direction=tab<cr>", "Terminal (Tab)" },
 })
 
 wk.register({
@@ -96,6 +124,7 @@ wk.register({
 			name = "+git",
 			c = { "<cmd>Telescope git_commits<cr>", "Commits" },
 			s = { "<cmd>Telescope git_status<cr>", "Status" },
+			g = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
 		},
 		s = {
 			name = "+search",
