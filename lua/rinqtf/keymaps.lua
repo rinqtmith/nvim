@@ -83,6 +83,7 @@ wk.register({
 
 wk.register({
 	["<leader>"] = {
+		a = { "<cmd>AerialToggle!<cr>", "Symbols outline" },
 		w = {
 			name = "+window",
 			o = { "<C-w>o", "Close other windows" },
