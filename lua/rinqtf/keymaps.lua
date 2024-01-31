@@ -75,6 +75,8 @@ wk.register({
 		end,
 		"Previous todo comment",
 	},
+
+	["<ESC>"] = { "<cmd>noh<cr>", "Clear highlights" },
 })
 
 wk.register({
