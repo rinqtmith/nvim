@@ -127,6 +127,7 @@ wk.register({
 			g = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
 			p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
 			t = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
+			b = { "<cmd>Git blame<CR>", "Show blame" },
 		},
 		s = {
 			name = "+search",
