@@ -140,7 +140,7 @@ return {
 			})
 			require("mason").setup()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer" },
+				ensure_installed = { "lua_ls", "rust_analyzer", "tsserver" },
 				handlers = {
 					lsp_zero.default_setup,
 					lua_ls = function()
@@ -152,6 +152,45 @@ return {
 							settings = {
 								["rust-analyzer"] = {
 									check = { command = "clippy" },
+								},
+							},
+						})
+					end,
+					tsserver = function()
+						require("lspconfig").tsserver.setup({
+							settings = {
+								completions = {
+									completeFunctionCalls = true,
+								},
+							},
+						})
+
+						wk.register({
+							["<leader>lt"] = {
+								name = "+tsserver",
+								r = {
+									function()
+										vim.lsp.buf.code_action({
+											apply = true,
+											context = {
+												only = { "source.removeUnused.ts" },
+												diagnostics = {},
+											},
+										})
+									end,
+									"Remove Unused Imports",
+								},
+								o = {
+									function()
+										vim.lsp.buf.code_action({
+											apply = true,
+											context = {
+												only = { "source.organizeImports.ts" },
+												diagnostics = {},
+											},
+										})
+									end,
+									"Organize Imports",
 								},
 							},
 						})
