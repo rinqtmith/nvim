@@ -1,11 +1,12 @@
 return {
-  "rebelot/kanagawa.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("kanagawa").setup({
-      dimInactive = true,
-    })
-    vim.cmd("colorscheme kanagawa")
-  end,
+	"rebelot/kanagawa.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("kanagawa").setup({
+			dimInactive = true,
+			transparent = true,
+		})
+		vim.cmd("colorscheme kanagawa")
+	end,
 }
