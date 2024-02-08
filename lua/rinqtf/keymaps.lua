@@ -154,5 +154,9 @@ wk.register({
 			g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
 			h = { "<cmd>Telescope help_tags<cr>", "Help" },
 		},
+		n = {
+			name = "+noice",
+			d = { "<cmd>NoiceDismiss<cr>", "Dismiss message" },
+		},
 	},
 })
