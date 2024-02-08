@@ -117,10 +117,42 @@ wk.register({
 		},
 		x = {
 			name = "+list",
-			l = { "<cmd>lopen<cr>", "Location list" },
-			q = { "<cmd>copen<cr>", "Quickfix list" },
-			t = { "<cmd>TodoTelescope<cr>", "Todo search" },
-			x = { "<cmd>TodoQuickfix<cr>", "Todo list" },
+			d = {
+				function()
+					require("trouble").toggle("document_diagnostics")
+				end,
+				"Workspace diagnostics",
+			},
+			w = {
+				function()
+					require("trouble").toggle("workspace_diagnostics")
+				end,
+				"Workspace diagnostics",
+			},
+			l = {
+				function()
+					require("trouble").toggle("loclist")
+				end,
+				"Location list",
+			},
+			q = {
+				function()
+					require("trouble").toggle("quickfix")
+				end,
+				"Quickfix list",
+			},
+			r = {
+				function()
+					require("trouble").toggle("lsp_references")
+				end,
+				"Trouble lsp references",
+			},
+			x = {
+				function()
+					require("trouble").toggle()
+				end,
+				"Trouble toggle",
+			},
 		},
 		qq = { "<cmd>qa<cr>", "Quit all" },
 		e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
