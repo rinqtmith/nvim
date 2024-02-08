@@ -121,7 +121,7 @@ wk.register({
 				function()
 					require("trouble").toggle("document_diagnostics")
 				end,
-				"Workspace diagnostics",
+				"Document diagnostics",
 			},
 			w = {
 				function()
