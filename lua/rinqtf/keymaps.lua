@@ -36,8 +36,8 @@ wk.register({
 	["<A-j>"] = { "<cmd>m .+1<cr>==", "Move down" },
 	["<A-k>"] = { "<cmd>m .-2<cr>==", "Move up" },
 
-	["<tab>"] = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
-	["<S-tab>"] = { "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
+	["<tab>"] = { "<cmd>bn<cr>", "Next buffer" },
+	["<S-tab>"] = { "<cmd>bp<cr>", "Previous buffer" },
 
 	["<C-d>"] = { "<C-d>zz", "Go down" },
 	["<C-u>"] = { "<C-u>zz", "Go up" },
@@ -114,8 +114,8 @@ wk.register({
 		b = {
 			name = "+buffers",
 			d = { "<cmd>bd<cr>", "Delete buffer" },
-			p = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
-			c = { "<cmd>BufferLinePickClose<cr>", "Pick and close buffer" },
+			-- p = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
+			-- c = { "<cmd>BufferLinePickClose<cr>", "Pick and close buffer" },
 		},
 		x = {
 			name = "+list",

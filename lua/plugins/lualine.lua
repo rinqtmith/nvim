@@ -41,6 +41,7 @@ return {
 		-- Config
 		local config = {
 			options = {
+				globalstatus = true,
 				-- Disable sections and component separators
 				component_separators = "",
 				section_separators = "",
