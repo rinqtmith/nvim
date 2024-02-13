@@ -28,9 +28,7 @@ return {
 						"Hover",
 					},
 					["<F2>"] = {
-						function()
-							vim.lsp.buf.rename()
-						end,
+						":IncRename ",
 						"Rename",
 					},
 					["<leader>"] = {
