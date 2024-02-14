@@ -19,6 +19,13 @@ return {
 					filter = { event = "notify", find = "No information available" },
 					opts = { skip = true },
 				},
+				{
+					filter = {
+						event = "msg_show",
+						find = "%d+L, %d+B",
+					},
+					opts = { skip = true },
+				},
 			},
 			presets = {
 				lsp_doc_border = true, -- add a border to hover docs and signature help
