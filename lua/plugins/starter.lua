@@ -24,6 +24,7 @@ return {
 				new_section("Recent files", "Telescope oldfiles", "Telescope"),
 				new_section("Grep text", "Telescope live_grep", "Telescope"),
 				new_section("Lazy", "Lazy", "Config"),
+				new_section("Mason", "Mason", "Config"),
 				new_section("New file", "ene | startinsert", "Built-in"),
 				new_section("Quit", "qa", "Built-in"),
 			},
