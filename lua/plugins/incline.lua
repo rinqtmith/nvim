@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("incline").setup({
 			render = function(props)
-				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
 				local ft_icon, ft_color = require("nvim-web-devicons").get_icon_color(filename)
 				local modified = vim.bo[props.buf].modified and "bold,italic" or "bold"
 
