@@ -136,6 +136,7 @@ return {
 			"filename",
 			cond = conditions.buffer_not_empty,
 			color = { fg = colors.magenta, gui = "bold" },
+			path = 1,
 		})
 
 		ins_left({ "location" })
