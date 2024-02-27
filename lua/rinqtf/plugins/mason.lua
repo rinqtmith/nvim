@@ -15,16 +15,7 @@ return {
     },
   },
   config = function(_, opts)
-    local servers = {
-      "lua_ls",
-      "rust_analyzer",
-      "tsserver",
-      "html",
-      "cssls",
-      "jsonls",
-      "taplo",
-      "tailwindcss",
-    }
+    local servers = SERVERS
     local extras = {
       "eslint_d",
       "prettier",

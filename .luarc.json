@@ -1,7 +1,6 @@
 {
     "diagnostics.globals": [
-        "vim",
-        "_lazygit_toggle"
+        "vim"
     ],
     "diagnostics.disable": [
         "missing-fields"
