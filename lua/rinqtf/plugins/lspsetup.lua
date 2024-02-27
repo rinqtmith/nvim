@@ -74,6 +74,7 @@ return {
       },
     }
     vim.diagnostic.config(default_diagnostic_config)
+    ---@diagnostic disable-next-line: param-type-mismatch
     for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
       vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
     end
@@ -88,6 +89,7 @@ return {
 
       local require_ok, settings = pcall(require, "rinqtf.lspsettings." .. server)
       if require_ok then
+        ---@diagnostic disable-next-line: cast-local-type
         opts = vim.tbl_deep_extend("force", settings, opts)
       end
 
