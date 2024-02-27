@@ -13,12 +13,12 @@ return {
 				globalstatus = true,
 			},
 			sections = {
-				lualine_a = { "filename" },
-				lualine_b = { "branch", "diff" },
-				lualine_c = { "diagnostics" },
-				lualine_x = { [[%3{codeium#GetStatusString()}]], "filetype" },
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = { "mode", "filename", "branch", "diff", "diagnostics" },
+				lualine_x = { [[%3{codeium#GetStatusString()}]], "filetype", "progress", "location" },
+				lualine_y = {},
+				lualine_z = {},
 			},
 			winbar = {
 				lualine_a = {},

@@ -13,8 +13,8 @@ wk.register({
 	["<A-j>"] = { "<cmd>m .+1<cr>==", "Move down" },
 	["<A-k>"] = { "<cmd>m .-2<cr>==", "Move up" },
 
-	["<tab>"] = { "<cmd>bn<cr>", "Next buffer" },
-	["<S-tab>"] = { "<cmd>bp<cr>", "Previous buffer" },
+	["<S-l>"] = { "<cmd>bn<cr>", "Next buffer" },
+	["<S-h>"] = { "<cmd>bp<cr>", "Previous buffer" },
 
 	["<C-d>"] = { "<C-d>zz", "Go down" },
 	["<C-u>"] = { "<C-u>zz", "Go up" },
@@ -112,7 +112,6 @@ wk.register({
 				"Trouble toggle",
 			},
 		},
-		qq = { "<cmd>qa<cr>", "Quit all" },
 		n = {
 			name = "+noice",
 			d = { "<cmd>NoiceDismiss<cr>", "Dismiss message" },
