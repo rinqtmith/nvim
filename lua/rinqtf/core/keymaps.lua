@@ -1,28 +1,5 @@
 local wk = require("which-key")
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({
-	cmd = "lazygit",
-	dir = "git_dir",
-	direction = "float",
-	float_opts = {
-		border = "double",
-	},
-	-- function to run on opening the terminal
-	on_open = function(term)
-		vim.cmd("startinsert!")
-		vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-	end,
-	-- function to run on closing the terminal
-	on_close = function(_)
-		vim.cmd("startinsert!")
-	end,
-})
-
-function _lazygit_toggle()
-	lazygit:toggle()
-end
-
 wk.register({
 	["<C-h>"] = { "<C-w>h", "Go to left window" },
 	["<C-l>"] = { "<C-w>l", "Go to right window" },
@@ -57,26 +34,6 @@ wk.register({
 		end,
 		"Previous quickfix",
 	},
-
-	["<A-1>"] = { "<cmd>ToggleTerm direction=float<cr>", "Terminal (Float)" },
-	["<A-2>"] = { "<cmd>ToggleTerm size=70 direction=vertical<cr>", "Terminal (Veritcal)" },
-	["<A-3>"] = { "<cmd>ToggleTerm direction=horizontal<cr>", "Terminal (Horizontal)" },
-	["<A-4>"] = { "<cmd>ToggleTerm direction=tab<cr>", "Terminal (Tab)" },
-
-	["]t"] = {
-		function()
-			require("todo-comments").jump_next()
-		end,
-		"Next todo comment",
-	},
-	["[t"] = {
-		function()
-			require("todo-comments").jump_prev()
-		end,
-		"Previous todo comment",
-	},
-
-	["<ESC>"] = { "<cmd>noh<cr>", "Clear highlights" },
 })
 
 wk.register({
@@ -98,7 +55,6 @@ wk.register({
 
 wk.register({
 	["<leader>"] = {
-		a = { "<cmd>AerialToggle!<cr>", "Symbols outline" },
 		w = {
 			name = "+window",
 			o = { "<C-w>o", "Close other windows" },
@@ -157,37 +113,6 @@ wk.register({
 			},
 		},
 		qq = { "<cmd>qa<cr>", "Quit all" },
-		e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-		t = {
-			name = "+tab",
-			n = { "<cmd>tabn<cr>", "Next tab" },
-			p = { "<cmd>tabp<cr>", "Previous tab" },
-			o = { "<cmd>tabnew<cr>", "New tab" },
-			q = { "<cmd>tabclose<cr>", "Close tab" },
-		},
-		f = {
-			name = "+find",
-			f = { "<cmd>Telescope find_files<cr>", "Find files" },
-			b = { "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", "Find buffers" },
-			g = { "<cmd>Telescope git_files<cr>", "Find files (git files)" },
-			r = { "<cmd>Telescope oldfiles<cr>", "Recent" },
-		},
-		g = {
-			name = "+git",
-			c = { "<cmd>Telescope git_commits<cr>", "Commits" },
-			s = { "<cmd>Telescope git_status<cr>", "Status" },
-			g = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
-			p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview hunk" },
-			t = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle line blame" },
-			b = { "<cmd>Git blame<CR>", "Show blame" },
-		},
-		s = {
-			name = "+search",
-			r = { "<cmd>Telescope registers<cr>", "Registers" },
-			b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Buffer" },
-			g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-			h = { "<cmd>Telescope help_tags<cr>", "Help" },
-		},
 		n = {
 			name = "+noice",
 			d = { "<cmd>NoiceDismiss<cr>", "Dismiss message" },
