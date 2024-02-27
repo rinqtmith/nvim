@@ -29,6 +29,7 @@ return {
 				enabled = true,
 				custom_bg = "NONE", -- "lualine" will set background to mantle
 			},
+			harpoon = true,
 		},
 	},
 	config = function(_, opts)
