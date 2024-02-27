@@ -54,3 +54,5 @@ opt.fillchars = "eob: "
 opt.virtualedit = "block"
 
 g.mapleader = " "
+
+g.nonels_supress_issue58 = true
