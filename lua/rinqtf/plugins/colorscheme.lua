@@ -25,6 +25,10 @@ return {
 				},
 			},
 			which_key = false,
+			navic = {
+				enabled = true,
+				custom_bg = "NONE", -- "lualine" will set background to mantle
+			},
 		},
 	},
 	config = function(_, opts)
