@@ -1,5 +1,6 @@
 require("rinqtf.spec")
 require("rinqtf.core")
 spec("rinqtf.plugins.colorscheme")
+spec("rinqtf.plugins.dressing")
 spec("rinqtf.plugins.devicons")
 require("rinqtf.lazy")
