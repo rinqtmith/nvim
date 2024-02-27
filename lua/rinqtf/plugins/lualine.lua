@@ -183,9 +183,9 @@ return {
 		})
 
 		-- Add components to right sections
-		ins_right({
-			[[%3{codeium#GetStatusString()}]],
-		})
+		-- ins_right({
+		-- 	[[%3{codeium#GetStatusString()}]],
+		-- })
 		ins_right({
 			"o:encoding", -- option component same as &encoding in viml
 			fmt = string.upper, -- I'm not sure why it's upper case either ;)
