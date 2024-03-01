@@ -29,23 +29,32 @@ return {
 			return capabilities
 		end
 		local wk = require("which-key")
+		local conform = require("conform")
+		local lint = require("lint")
 		wk.register({
-			["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+			["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = { "n", "v" } },
 			["<leader>lf"] = {
-				"<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end, timeout_ms = 2000})<cr>",
+				function()
+					conform.format({
+						lsp_fallback = true,
+						async = false,
+						timeout_ms = 1000,
+					})
+				end,
 				"Format",
+				mode = { "n", "v" },
+			},
+			["<leader>lp"] = {
+				function()
+					lint.try_lint()
+				end,
+				"Lint",
 			},
 			["<leader>lj"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
 			["<leader>lk"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 			["<leader>ll"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 			["<leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 			["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		})
-		wk.register({
-			["<leader>la"] = {
-				name = "LSP",
-				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = "v" },
-			},
 		})
 		local lspconfig = require("lspconfig")
 		local icons = require("rinqtf.icons")

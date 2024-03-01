@@ -8,7 +8,6 @@ return {
 		local null_ls = require("null-ls")
 		local mason_null_ls = require("mason-null-ls")
 		local formatting = null_ls.builtins.formatting
-		local diagnostics = null_ls.builtins.diagnostics
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 		mason_null_ls.setup({
@@ -20,11 +19,6 @@ return {
 			sources = {
 				formatting.stylua,
 				formatting.prettier,
-				diagnostics.eslint_d.with({
-					condition = function(utils)
-						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
-					end,
-				}),
 				null_ls.builtins.completion.spell,
 			},
 			on_attach = function(current_client, bufnr)
