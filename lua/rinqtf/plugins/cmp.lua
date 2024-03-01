@@ -11,10 +11,6 @@ return {
 			event = "InsertEnter",
 		},
 		{
-			"hrsh7th/cmp-buffer",
-			event = "InsertEnter",
-		},
-		{
 			"hrsh7th/cmp-path",
 			event = "InsertEnter",
 		},
@@ -109,7 +105,6 @@ return {
 						nvim_lsp = "",
 						nvim_lua = "",
 						luasnip = "",
-						buffer = "",
 						path = "",
 						emoji = "",
 					})[entry.source.name]
@@ -119,11 +114,6 @@ return {
 						vim_item.kind_hl_group = "CmpItemKindEmoji"
 					end
 
-					if entry.source.name == "cmp_tabnine" then
-						vim_item.kind = icons.misc.Robot
-						vim_item.kind_hl_group = "CmpItemKindTabnine"
-					end
-
 					return vim_item
 				end,
 			},
@@ -131,9 +121,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "nvim_lua" },
-				-- { name = "buffer" },
 				{ name = "path" },
-				{ name = "calc" },
 				{ name = "emoji" },
 			},
 			confirm_opts = {
@@ -150,7 +138,7 @@ return {
 				},
 			},
 			experimental = {
-				ghost_text = true,
+				ghost_text = false,
 			},
 		})
 	end,
