@@ -40,6 +40,7 @@ return {
 
 		local check_backspace = function()
 			local col = vim.fn.col(".") - 1
+			---@diagnostic disable-next-line: param-type-mismatch
 			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 		end
 
@@ -120,7 +121,6 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "nvim_lua" },
 				{ name = "path" },
 				{ name = "emoji" },
 			},

@@ -8,16 +8,10 @@ return {
 	opts = {},
 	config = function()
 		local mappings = {
-			q = { "<cmd>confirm q<CR>", "Quit" },
+			-- q = { "<cmd>confirm q<CR>", "Quit" },
 			h = { "<cmd>nohlsearch<CR>", "NOHL" },
-			[";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
-			b = { name = "Buffers" },
-			d = { name = "Debug" },
-			f = { name = "Find" },
+			s = { name = "[S]earch" },
 			g = { name = "Git" },
-			l = { name = "LSP" },
-			p = { name = "Plugins" },
-			t = { name = "Test" },
 			a = {
 				name = "Tab",
 				n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
@@ -45,7 +39,6 @@ return {
 					windows = false,
 					nav = false,
 					z = false,
-					g = false,
 				},
 			},
 			window = {

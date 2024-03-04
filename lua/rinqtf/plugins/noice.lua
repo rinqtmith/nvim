@@ -16,6 +16,10 @@ return {
 			},
 			routes = {
 				{
+					view = "split",
+					filter = { event = "msg_show", min_height = 20 },
+				},
+				{
 					filter = { event = "notify", find = "No information available" },
 					opts = { skip = true },
 				},
@@ -23,6 +27,13 @@ return {
 					filter = {
 						event = "msg_show",
 						find = "%d+L, %d+B",
+					},
+					opts = { skip = true },
+				},
+				{
+					filter = {
+						event = "notify",
+						find = "method textDocument/declaration is not supported by any of the servers registered for the current buffer",
 					},
 					opts = { skip = true },
 				},

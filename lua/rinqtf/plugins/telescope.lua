@@ -3,19 +3,37 @@ return {
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},
 	config = function()
 		local wk = require("which-key")
+		local builtin = require("telescope.builtin")
 		wk.register({
-			["<leader>bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-			["<leader>fb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-			["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-			["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-			-- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-			["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-			["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-			["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
-			["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+			["<leader><leader>"] = { builtin.buffers, "[ ] Find existing buffers" },
+			["<leader>sk"] = { builtin.keymaps, "[S]earch [K]eymaps" },
+			["<leader>sh"] = { builtin.help_tags, "[S]earch [H]elp" },
+			["<leader>sf"] = { builtin.find_files, "[S]earch [F]iles" },
+			["<leader>ss"] = { builtin.builtin, "[S]earch [S]elect Telescope" },
+			["<leader>sw"] = { builtin.grep_string, "[S]earch current [W]ord" },
+			["<leader>sg"] = { builtin.live_grep, "[S]earch by [G]rep" },
+			["<leader>sd"] = { builtin.diagnostics, "[S]earch [D]iagnostics" },
+			["<leader>sr"] = { builtin.resume, "[S]earch [R]esume" },
+			["<leader>s."] = { builtin.oldfiles, "[S]earch Recent Files ('.' for repeat)" },
+			["<leader>s/"] = {
+				function()
+					builtin.live_grep({
+						grep_open_files = true,
+						prompt_title = "Live Grep in Open Files",
+					})
+				end,
+				"[S]earch [/] in Open Files",
+			},
+			["<leader>sn"] = {
+				function()
+					builtin.find_files({ cwd = vim.fn.stdpath("config") })
+				end,
+				"[S]earch [N]eovim files",
+			},
 		})
 
 		local icons = require("rinqtf.icons")
@@ -113,9 +131,13 @@ return {
 					override_file_sorter = true,
 					case_mode = "smart_case",
 				},
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown(),
+				},
 			},
 		})
 		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("ui-select")
 		-- require("telescope").load_extension("noice")
 	end,
 }

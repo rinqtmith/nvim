@@ -1,6 +1,6 @@
 local wk = require("which-key")
 wk.register({
-	["<leader>lt"] = {
+	["<leader>t"] = {
 		name = "+tsserver",
 		r = {
 			function()

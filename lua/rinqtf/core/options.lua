@@ -19,6 +19,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
+opt.breakindent = true
 
 opt.scrolloff = 30
 
@@ -53,6 +54,10 @@ opt.iskeyword:append("-")
 opt.fillchars = "eob: "
 opt.virtualedit = "block"
 
-g.mapleader = " "
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
-g.nonels_supress_issue58 = true
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+g.mapleader = " "

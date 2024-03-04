@@ -4,17 +4,29 @@ return {
 	dependencies = { "folke/neodev.nvim" },
 	config = function()
 		local function lsp_keymaps(bufnr)
-			local opts = { noremap = true, silent = true }
-			local keymap = vim.api.nvim_buf_set_keymap
-			keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-			keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-			-- keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-			keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-			keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-			-- keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
-			keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-			-- keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-			keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+			local wk = require("which-key")
+			local builtin = require("telescope.builtin")
+			wk.register({
+				["gd"] = { builtin.lsp_definitions, "[G]oto [D]efinition", { buffer = bufnr } },
+				["gr"] = { builtin.lsp_references, "[G]oto [R]eferences", { buffer = bufnr } },
+				["gI"] = { builtin.lsp_implementations, "[G]oto [I]mplementation", { buffer = bufnr } },
+				["<leader>D"] = { builtin.lsp_type_definitions, "Type [D]efinition", { buffer = bufnr } },
+				["<leader>ds"] = { builtin.lsp_document_symbols, "[D]ocument [S]ymbols", { buffer = bufnr } },
+				["<leader>rn"] = { vim.lsp.buf.rename, "[R]e[n]ame", { buffer = bufnr } },
+				["<leader>ca"] = {
+					vim.lsp.buf.code_action,
+					"[C]ode [A]ction",
+					mode = { "n", "v" },
+					{ buffer = bufnr },
+				},
+				["K"] = { vim.lsp.buf.hover, "Hover Documentation", { buffer = bufnr } },
+				["gD"] = { vim.lsp.buf.declaration(), "[G]oto [D]eclaration", { buffer = bufnr } },
+				["]d"] = { vim.diagnostic.goto_next, "Go to next [D]iagnostic message", { buffer = bufnr } },
+				["[d"] = { vim.diagnostic.goto_prev, "Go to previous [D]iagnostic message", { buffer = bufnr } },
+				["<leader>cla"] = { vim.lsp.codelens.run, "[C]ode[L]ens [A]ction", { buffer = bufnr } },
+				["<leader>q"] = { vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list" },
+				["<leader>l"] = { vim.diagnostic.open_float, "Show diagnostic [E]rror messages" },
+			})
 		end
 		local on_attach = function(client, bufnr)
 			lsp_keymaps(bufnr)
@@ -26,36 +38,10 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			---@diagnostic disable-next-line: inject-field
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
+			---@diagnostic disable-next-line: cast-local-type
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			return capabilities
 		end
-		local wk = require("which-key")
-		local conform = require("conform")
-		local lint = require("lint")
-		wk.register({
-			["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = { "n", "v" } },
-			["<leader>lf"] = {
-				function()
-					conform.format({
-						lsp_fallback = true,
-						async = false,
-						timeout_ms = 1000,
-					})
-				end,
-				"Format",
-				mode = { "n", "v" },
-			},
-			["<leader>lp"] = {
-				function()
-					lint.try_lint()
-				end,
-				"Lint",
-			},
-			["<leader>lj"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
-			["<leader>lk"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-			["<leader>ll"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-			["<leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-			["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		})
 		local lspconfig = require("lspconfig")
 		local icons = require("rinqtf.icons")
 		local servers = SERVERS
