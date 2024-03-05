@@ -7,6 +7,7 @@ SERVERS = {
 	"jsonls",
 	"taplo",
 	"tailwindcss",
+	"gopls",
 }
 EXTRAS = {
 	"eslint_d",
