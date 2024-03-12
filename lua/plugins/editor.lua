@@ -1,6 +1,7 @@
 return {
   {
     "folke/flash.nvim",
+    enabled = false,
     vscode = false,
     opts = {
       search = {
