@@ -44,6 +44,13 @@ return {
         end,
         desc = "Open File Browser with the path of the current buffer",
       },
+      {
+        "<leader>fs",
+        function()
+          require("telescope.builtin").git_status()
+        end,
+        desc = "Find in git status",
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")
