@@ -27,3 +27,5 @@ opt.iskeyword:append("-")
 opt.fillchars = "eob: "
 
 opt.cursorline = false
+
+g.zig_fmt_autosave = 0
